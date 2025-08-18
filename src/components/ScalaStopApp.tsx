@@ -15,8 +15,8 @@ interface GameSettings {
   maxScore: number;
 }
 
-const STORAGE_KEY = 'scalastop-game';
-const SETTINGS_KEY = 'scalastop-settings';
+const STORAGE_KEY = 'scaladash-game';
+const SETTINGS_KEY = 'scaladash-settings';
 
 const ScalaStopApp = () => {
   const [players, setPlayers] = useState<Player[]>([
@@ -192,7 +192,7 @@ const ScalaStopApp = () => {
       <div className="text-center mb-6">
         <h1 className="text-3xl font-bold gradient-text text-shadow mb-2">
           <Crown className="inline-block w-8 h-8 mr-2" />
-          ScalaStop
+          ScalaDash
         </h1>
         <p className="text-muted-foreground">Scala 40 Score Tracker</p>
         <p className="text-sm text-muted-foreground mt-1">
