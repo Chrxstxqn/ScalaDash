@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Settings, Users, RotateCcw, Edit3, Trash2, Trophy, Crown } from 'lucide-react';
+import { Plus, Settings, Users, RotateCcw, Edit3, Trash2, Trophy, Crown, Hash } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -30,6 +30,8 @@ const ScalaStopApp = () => {
   const [showAddPlayer, setShowAddPlayer] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [confetti, setConfetti] = useState<Array<{ id: number; x: number; delay: number }>>([]);
+  const [customPointsPlayer, setCustomPointsPlayer] = useState<string | null>(null);
+  const [customPoints, setCustomPoints] = useState('');
 
   // Load data from localStorage
   useEffect(() => {
@@ -172,6 +174,17 @@ const ScalaStopApp = () => {
 
   const hasPlayerLost = (score: number) => {
     return score >= settings.maxScore;
+  };
+
+  const addCustomPoints = () => {
+    if (customPointsPlayer && customPoints) {
+      const points = parseInt(customPoints);
+      if (!isNaN(points)) {
+        addPoints(customPointsPlayer, points);
+        setCustomPointsPlayer(null);
+        setCustomPoints('');
+      }
+    }
   };
 
   return (
@@ -353,49 +366,113 @@ const ScalaStopApp = () => {
 
               {/* Score Controls */}
               {!hasLost && (
-                <div className="grid grid-cols-3 gap-2">
-                  <Button
-                    onClick={() => addPoints(player.id, -5)}
-                    className="btn-secondary"
-                    size="sm"
+                <div className="space-y-2">
+                  <div className="grid grid-cols-3 gap-2">
+                    <Button
+                      onClick={() => addPoints(player.id, -5)}
+                      className="btn-secondary"
+                      size="sm"
+                    >
+                      -5
+                    </Button>
+                    <Button
+                      onClick={() => addPoints(player.id, -1)}
+                      className="btn-secondary"
+                      size="sm"
+                    >
+                      -1
+                    </Button>
+                    <Button
+                      onClick={() => addPoints(player.id, 1)}
+                      className="btn-primary"
+                      size="sm"
+                    >
+                      +1
+                    </Button>
+                    <Button
+                      onClick={() => addPoints(player.id, 5)}
+                      className="btn-primary"
+                      size="sm"
+                    >
+                      +5
+                    </Button>
+                    <Button
+                      onClick={() => addPoints(player.id, 10)}
+                      className="btn-primary"
+                      size="sm"
+                    >
+                      +10
+                    </Button>
+                    <Button
+                      onClick={() => addPoints(player.id, 20)}
+                      className="btn-primary"
+                      size="sm"
+                    >
+                      +20
+                    </Button>
+                  </div>
+                  
+                  {/* Custom Points Button */}
+                  <Dialog 
+                    open={customPointsPlayer === player.id} 
+                    onOpenChange={(open) => {
+                      if (!open) {
+                        setCustomPointsPlayer(null);
+                        setCustomPoints('');
+                      }
+                    }}
                   >
-                    -5
-                  </Button>
-                  <Button
-                    onClick={() => addPoints(player.id, -1)}
-                    className="btn-secondary"
-                    size="sm"
-                  >
-                    -1
-                  </Button>
-                  <Button
-                    onClick={() => addPoints(player.id, 1)}
-                    className="btn-primary"
-                    size="sm"
-                  >
-                    +1
-                  </Button>
-                  <Button
-                    onClick={() => addPoints(player.id, 5)}
-                    className="btn-primary"
-                    size="sm"
-                  >
-                    +5
-                  </Button>
-                  <Button
-                    onClick={() => addPoints(player.id, 10)}
-                    className="btn-primary"
-                    size="sm"
-                  >
-                    +10
-                  </Button>
-                  <Button
-                    onClick={() => addPoints(player.id, 20)}
-                    className="btn-primary"
-                    size="sm"
-                  >
-                    +20
-                  </Button>
+                    <DialogTrigger asChild>
+                      <Button
+                        onClick={() => setCustomPointsPlayer(player.id)}
+                        className="btn-accent w-full"
+                        size="sm"
+                      >
+                        <Hash className="w-4 h-4 mr-1" />
+                        Punti personalizzati
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Aggiungi punti a {player.name}</DialogTitle>
+                      </DialogHeader>
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium mb-2">
+                            Punti da aggiungere (+ o -)
+                          </label>
+                          <Input
+                            type="number"
+                            placeholder="Es: +15, -10"
+                            value={customPoints}
+                            onChange={(e) => setCustomPoints(e.target.value)}
+                            onKeyPress={(e) => e.key === 'Enter' && addCustomPoints()}
+                            className="input-game"
+                            autoFocus
+                          />
+                        </div>
+                        <div className="flex gap-2">
+                          <Button 
+                            onClick={addCustomPoints} 
+                            className="btn-primary flex-1"
+                            disabled={!customPoints || isNaN(parseInt(customPoints))}
+                          >
+                            Aggiungi
+                          </Button>
+                          <Button 
+                            onClick={() => {
+                              setCustomPointsPlayer(null);
+                              setCustomPoints('');
+                            }} 
+                            variant="outline"
+                            className="flex-1"
+                          >
+                            Annulla
+                          </Button>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               )}
             </div>
