@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Settings, Users, RotateCcw, Edit3, Trash2, Trophy, Crown, Hash } from 'lucide-react';
+import { Plus, Settings, Users, RotateCcw, Edit3, Trash2, Trophy, Crown, Hash, HelpCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -315,6 +316,13 @@ const ScalaStopApp = () => {
             </div>
           </DialogContent>
         </Dialog>
+
+        <Link to="/help">
+          <Button className="btn-secondary" size="sm">
+            <HelpCircle className="w-4 h-4 mr-1" />
+            Aiuto
+          </Button>
+        </Link>
       </div>
 
       {/* Players Grid */}
