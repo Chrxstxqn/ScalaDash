@@ -285,8 +285,24 @@ const ScalaStopApp = () => {
                   min="50"
                   max="500"
                   step="10"
-                  value={settings.maxScore}
-                  onChange={(e) => setSettings({ ...settings, maxScore: parseInt(e.target.value) || 150 })}
+                  value={settings.maxScore || ''}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (value === '') {
+                      setSettings({ ...settings, maxScore: 0 });
+                    } else {
+                      const numValue = parseInt(value);
+                      if (!isNaN(numValue)) {
+                        setSettings({ ...settings, maxScore: numValue });
+                      }
+                    }
+                  }}
+                  onBlur={(e) => {
+                    const value = parseInt(e.target.value);
+                    if (isNaN(value) || value < 50) {
+                      setSettings({ ...settings, maxScore: 150 });
+                    }
+                  }}
                   className="input-game"
                 />
               </div>
