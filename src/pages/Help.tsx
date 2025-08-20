@@ -135,20 +135,7 @@ const Help = () => {
           </Card>
 
           {/* Sezione: Informazioni */}
-          <Card className="card-game">
-            <CardHeader>
-              <CardTitle className="text-xl">Sviluppata con ❤️ da Chrxstxqn</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3 text-sm">
-                <p>
-                  <strong>Scala 40 Blitz</strong> è un'app web progressiva (PWA) gratuita per tenere traccia dei punteggi durante le partite a Scala 40.
-                </p>
-                <p>Sviluppata con ❤️ </p>
-                <p>Se ti piace l'app, supportami  il widget Ko-fi flottante! Facendo una donazione anche piccola mi aiuterai a ma</p>
-              </div>
-            </CardContent>
-          </Card>
+          
         </div>
 
         <div className="text-center mt-8">
