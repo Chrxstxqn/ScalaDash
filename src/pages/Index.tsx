@@ -1,7 +1,7 @@
-import ScalaStopApp from '@/components/ScalaStopApp';
+import LandingPage from '@/components/LandingPage';
 
 const Index = () => {
-  return <ScalaStopApp />;
+  return <LandingPage />;
 };
 
 export default Index;
