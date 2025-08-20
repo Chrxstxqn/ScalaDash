@@ -146,8 +146,8 @@ const Help = () => {
                 <p>
                   <strong>Scala 40 Blitz</strong> è un'app web progressiva (PWA) gratuita per tenere traccia dei punteggi durante le partite a Scala 40.
                 </p>
-                <p>Sviluppata con ❤️ </p>
-                <p>Se ti piace l'app, supportami  il widget Ko-fi flottante! Facendo una donazione anche piccola mi aiuterai a ma</p>
+                <p>Sviluppata con ❤️ </p>
+                <p>Se ti piace l'app, supportami con il widget Ko-fi flottante! Facendo una donazione anche piccola mi aiuterai a mantenere l'app gratuita e a sviluppare nuove funzionalità.</p>
               </div>
             </CardContent>
           </Card>
