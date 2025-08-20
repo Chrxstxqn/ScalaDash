@@ -3,11 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowLeft, Plus, Settings, Trophy, Hash, Download, Home, Share } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Help = () => {
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-green-800 to-green-900 p-4">
+  return <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-green-800 to-green-900 p-4">
       {/* Header */}
       <header className="flex justify-start items-center mb-6">
         <Link to="/">
@@ -38,7 +35,7 @@ const Help = () => {
                 <ul className="list-disc list-inside space-y-1">
                   <li>Aggiungi i giocatori con il pulsante <Plus className="w-4 h-4 inline" /></li>
                   <li>Usa i pulsanti +5, +10, +20 per aggiungere punti</li>
-                  <li>Il primo giocatore a raggiungere il punteggio massimo vince!</li>
+                  <li>Il giocatore a raggiungere il punteggio massimo perde!</li>
                   <li>Personalizza il punteggio massimo nelle impostazioni</li>
                 </ul>
               </div>
@@ -110,11 +107,7 @@ const Help = () => {
                   </ol>
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-emerald-800/50 rounded-lg">
-                <p className="text-sm">
-                  💡 <strong>Suggerimento:</strong> Una volta installata, l'app funzionerà anche offline e si aprirà come un'app nativa!
-                </p>
-              </div>
+              
             </CardContent>
           </Card>
 
@@ -127,9 +120,7 @@ const Help = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-3 text-sm">
-                <div>
-                  <strong>Tocco lungo:</strong> Tieni premuto sui pulsanti dei punti per azioni rapide
-                </div>
+                
                 <div>
                   <strong>Punti negativi:</strong> Usa i punti personalizzati con il segno meno (es: -10)
                 </div>
@@ -155,12 +146,8 @@ const Help = () => {
                 <p>
                   <strong>Scala 40 Blitz</strong> è un'app web progressiva (PWA) gratuita per tenere traccia dei punteggi durante le partite a Scala 40.
                 </p>
-                <p>
-                  Sviluppata con ❤️ per gli amanti delle carte italiane.
-                </p>
-                <p>
-                  Se ti piace l'app, considera di supportare lo sviluppatore tramite il widget Ko-fi flottante!
-                </p>
+                <p>Sviluppata con ❤️ </p>
+                <p>Se ti piace l'app, supportami  il widget Ko-fi flottante! Facendo una donazione anche piccola mi aiuterai a ma</p>
               </div>
             </CardContent>
           </Card>
@@ -174,8 +161,6 @@ const Help = () => {
           </Link>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Help;
