@@ -286,12 +286,16 @@ const ScalaStopApp = () => {
                   min="50"
                   max="500"
                   step="10"
-                  value={settings.maxScore.toString()}
+                  value={settings.maxScore || ''}
                   onChange={(e) => {
                     const value = e.target.value;
-                    const numValue = parseInt(value);
-                    if (!isNaN(numValue) && numValue >= 50 && numValue <= 500) {
-                      setSettings({ ...settings, maxScore: numValue });
+                    if (value === '') {
+                      setSettings({ ...settings, maxScore: 0 });
+                    } else {
+                      const numValue = parseInt(value);
+                      if (!isNaN(numValue)) {
+                        setSettings({ ...settings, maxScore: numValue });
+                      }
                     }
                   }}
                   onBlur={(e) => {
