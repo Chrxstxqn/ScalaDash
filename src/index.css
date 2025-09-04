@@ -23,8 +23,8 @@ Ispirato alle carte da gioco con colori del tavolo verde, carte rosse/nere, oro 
     --primary: 0 65% 45%;
     --primary-foreground: 0 0% 98%;
 
-    /* Nero delle carte */
-    --secondary: 0 0% 15%;
+    /* Verde più chiaro per secondary */
+    --secondary: 140 25% 20%;
     --secondary-foreground: 0 0% 98%;
 
     /* Verde tavolo più chiaro */
