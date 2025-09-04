@@ -11,7 +11,7 @@ const LandingPage = () => {
         {/* Header */}
         <div className="text-center space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Scala Stop
+            ScalaDash
           </h1>
           <p className="text-xl text-muted-foreground">
             Il gioco di carte digitale per tutta la famiglia
@@ -23,7 +23,7 @@ const LandingPage = () => {
           <CardHeader className="text-center pb-6">
             <CardTitle className="text-2xl flex items-center justify-center gap-2">
               <Trophy className="h-6 w-6 text-primary" />
-              Benvenuto in Scala Stop
+              Benvenuto in ScalaDash
             </CardTitle>
             <CardDescription className="text-base">
               Tieni traccia dei punteggi della tua partita di Scala 40
